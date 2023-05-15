@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <title>Document</title>
+</head>
+
+<body style="background: url(img/Math.jpg);">
+    <header class="header">
+        <nav class="header__navbar">
+            <a href="" class="header-logo">LOGO</a>
+            <ul class="menu__list">
+                <li class="menu__list-item"><a href="#">Меню ресторану</a></li>
+                <li class="menu__list-item"><a href="#">Сніданки</a></li>
+                <li class="menu__list-item"><a href="">Обіди</a></li>
+                <li class="menu__list-item"><a href="">Напої</a></li>
+                <li class="menu__list-item"><a href="">Замовити онлайн</a></li>
+            </ul>
+
+            <div class="box">
+                <div class="cart-count">0</div>
+                <ion-icon name="cart" id="cart-icon"></ion-icon>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="menu container">
+        <img src="img/menu/main.jpeg" alt="main img" class="menu__main-img">
+
+    </div>
+
+    <div class="cart">
+        <div class="cart-title">Cart Items</div>
+        <div class="cart-content"></div>
+        <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">Rs.0</div>
+        </div>
+        <button class="btn-buy">Place Order</button>
+        <ion-icon name="close" id="cart-close"></ion-icon>
+    </div>
+
+
+    <script src="js/stickyNavbar.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
