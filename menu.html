@@ -14,7 +14,7 @@
 <body style="background: url(img/Math.jpg);">
     <header class="header">
         <nav class="header__navbar">
-            <a href="" class="header-logo">LOGO</a>
+            <a href="index.html" class="header-logo">LOGO</a>
             <ul class="menu__list">
                 <li class="menu__list-item"><a href="#">Меню ресторану</a></li>
                 <li class="menu__list-item"><a href="#">Сніданки</a></li>
@@ -36,9 +36,52 @@
         </nav>
     </header>
 
+    <div class="modal-wrapper">
+        <form action="index.html" method="post" class="order-form">
+            <fieldset>
+
+                <legend><span class="number">1</span> Your personal Info</legend>
+                <ion-icon name="close" id="order-close"></ion-icon>
+                <label class="delivery-label">Delivery options:</label>
+                <input type="radio" id="delivery-home" value="delivery" name="delivery-option">
+                <label for="delivery-home" class="light">Delivery home</label>
+                <br>
+                <input type="radio" id="eat-inside" name="delivery-option" value="eat inside">
+                <label for="eat-inside" class="light">Eat inside</label>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+
+                <label for="tel">Phone:</label>
+                <input type="tel" id="tel">
+
+                <label for="address" class="address-label">Address:</label>
+                <input type="text" id="address">
+
+
+                <label for="date-select" class="date-label">Choose the date:</label>
+
+                <input type="date" name="Date" id="date-select">
+
+                <label for="tables" class="tables-label">Choose the table:</label>
+
+                <select name="tables" id="tables">
+                    <option value="six">Стіл на 6 людей</option>
+                    <option value="five">Стіл на 5 людей </option>
+                    <option value="four">Стіл на 4 людини</option>
+                    <option value="three">Стіл на 3 людини</option>
+                    <option value="twp">Стіл на 2 людини</option>
+                </select>
+
+
+            </fieldset>
+            <button type="submit" class="order-btn">Order</button>
+        </form>
+    </div>
+
+
     <div class="menu container">
         <img src="img/menu/main.jpeg" alt="main img" class="menu__main-img">
-
     </div>
 
     <div class="cart">
@@ -46,7 +89,7 @@
         <div class="cart-content"></div>
         <div class="total">
             <div class="total-title">Total</div>
-            <div class="total-price">Rs.0</div>
+            <div class="total-price">грн.0</div>
         </div>
         <button class="btn-buy">Place Order</button>
         <ion-icon name="close" id="cart-close"></ion-icon>
@@ -54,8 +97,8 @@
 
 
     <script src="js/stickyNavbar.js"></script>
+    <script src="js/hamburgerScript.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/cart.js"></script>
 </body>
 
 </html>
