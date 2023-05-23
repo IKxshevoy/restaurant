@@ -11,7 +11,21 @@ switch (documentTitle) {
     
           value.forEach(
             card => {
-              section.append(createCard(card.price, card.name, card.photoLink, card.positionId));
+              section.append(createCard(card.price, card.name, card.photoLink, card.positionId, card.weight));
+            }
+          )
+        }
+        ));
+    })();
+    (function() {
+      fetch('http://localhost:8080/api/drinks?dividedByType=true').then(res => res.json())
+        .then(data => Object.entries(data).forEach(entry => {
+          const [key, value] = entry;
+          const section = createSection(key);
+    
+          value.forEach(
+            card => {
+              section.append(createCard(card.price, card.name, card.photoLink, card.positionId, card.volume, card.typeOfDrink));
             }
           )
         }
@@ -27,7 +41,7 @@ switch (documentTitle) {
     
           value.forEach(
             card => {
-              section.append(createWinesCard(card.price, card.name, card.photoLink, card.positionId, card.regionName));
+              section.append(createWinesCard(card.price, card.name, card.photoLink, card.positionId, card.regionName, card.country, card.typeOfWine));
             }
           )
         }
@@ -112,11 +126,19 @@ function removeFromSelect(select) {
   }
 }
 
+const btnSent = document.querySelector('.order-btn');
+btnSent.addEventListener('click', () => {
+  form.style.display = 'none';
+  document.querySelector('.modal-wrapper').style.display = 'none';
+  alert("Ваше замовлення було надіслано");
+});
+
 
 //-------------------CREATING SECTIONS
 function createSection(title) {
   const section = document.createElement('section');
   section.classList.add('menu-section');
+  section.setAttribute("id", title);
 
   const sectionTitle = document.createElement('h2');
   sectionTitle.classList.add('menu-section__title');
@@ -134,7 +156,7 @@ function createSection(title) {
 
 
 //--------------------------CREATING CARDS
-function createCard(price, name, photoLink, positionId) {
+function createCard(price, name, photoLink, positionId, weight) {
 
   const card = document.createElement('div');
   card.classList.add('card');
@@ -155,6 +177,60 @@ function createCard(price, name, photoLink, positionId) {
   cardTitle.classList.add('card-title');
   cardTitle.append(name);
   card.append(cardTitle);
+
+  const cardWeight = document.createElement('p');
+  cardWeight.classList.add('card-weight');
+  cardWeight.append(weight + " гр.")
+  card.append(cardWeight);
+  
+  const cardPrice = document.createElement('span');
+  cardPrice.classList.add('card-price');
+  cardPrice.append(price + " грн");
+  card.append(cardPrice);
+
+  const cartIcon = document.createElement('ion-icon');
+  cartIcon.classList.add('add-cart');
+  cartIcon.name = 'cart';
+  cartIcon.addEventListener('click', addCart);
+
+  card.append(cartIcon);
+
+  return card;
+}
+
+//-------------------CREATING DRINKS CARDS
+
+function createDrinksCard(price, name, photoLink, positionId, volume, typeOfDrink) {
+
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  card.setAttribute('id', positionId);
+
+  const cardImg = document.createElement('div');
+  cardImg.classList.add('card-img');
+
+  const foodImg = document.createElement('img');
+  foodImg.classList.add('food-img');
+  foodImg.src = photoLink;
+
+  cardImg.append(foodImg);
+  card.append(cardImg);
+
+  const cardTitle = document.createElement('h2');
+  cardTitle.classList.add('card-title');
+  cardTitle.append(name);
+  card.append(cardTitle);
+
+  const drinkType = document.createElement('p');
+  drinkType.classList.add('drink-type');
+  drinkType.append("Type: "+ typeOfDrink);
+  card.append(drinkType);
+
+  const cardVolume = document.createElement('p');
+  cardVolume.classList.add('card-volume');
+  cardVolume.append(volume + " ml");
+  card.append(cardVolume);
 
   const cardPrice = document.createElement('span');
   cardPrice.classList.add('card-price');
@@ -171,10 +247,9 @@ function createCard(price, name, photoLink, positionId) {
   return card;
 }
 
-
 //-------------------CREATING WINE CARDS
 
-function createWinesCard(price, name, photoLink, positionId, regionName) {
+function createWinesCard(price, name, photoLink, positionId, regionName, country, typeOfWine) {
 
   const card = document.createElement('div');
   card.classList.add('card');
@@ -196,9 +271,14 @@ function createWinesCard(price, name, photoLink, positionId, regionName) {
   cardTitle.append(name);
   card.append(cardTitle);
 
+  const wineType = document.createElement('p');
+  wineType.classList.add('wine-type');
+  wineType.append("Type: "+ typeOfWine);
+  card.append(wineType);
+
   const region = document.createElement('p');
   region.classList.add('region-name');
-  region.append("Region of " + regionName);
+  region.append(country + ", Region of " + regionName);
   card.append(region);
 
 

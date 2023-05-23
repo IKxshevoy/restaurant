@@ -72,8 +72,31 @@ body {
   margin-bottom: 10px;
 }
 
+.wine-type {
+  font-weight: 700;
+  color: #ff6348;
+  margin-bottom: 10px;
+}
+
+.drink-type {
+  font-weight: 700;
+  color: #ff6348;
+  margin-bottom: 10px;
+}
+
 .card-price {
-  font-weight: 500;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-weight {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-volume {
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .add-cart {
