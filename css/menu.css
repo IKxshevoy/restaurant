@@ -63,6 +63,13 @@ body {
   font-size: 1rem;
   font-weight: 600;
   color: #ff6348;
+  margin-bottom: 10px;
+}
+
+.region-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .card-price {
@@ -246,7 +253,7 @@ form {
   border-radius: 8px;
   position: fixed;
   left: 50%;
-  top: 20%;
+  top: 5%;
   transform: translate(-50%, 0);
   z-index: 999;
 }
@@ -349,8 +356,14 @@ label.light {
   margin-top: 20px;
 }
 
-@media screen and (min-width: 480px) {
-  form {
-    max-width: 480px;
+@media (max-width: 900px) {
+  .box {
+    position: absolute;
+    right: 18px;
+  }
+}
+@media (max-width: 500px) {
+  .order-form {
+    width: 350px;
   }
 }

@@ -188,18 +188,22 @@ html {
 
 @media (max-width:500px) {
   #tranding .tranding-slider {
-    height: 45rem;
+    height: 48rem;
   }
 
   .tranding-slide {
-    width: 28rem ;
-    height: 36rem ;
+    width: 20rem ;
+    height: 25rem ;
   }
 
   .tranding-slide .tranding-slide-img img {
-    width: 28rem ;
-    height: 36rem ;
+    width: 20rem ;
+    height: 25rem ;
   }
+
+  .tranding-slider-control {
+    bottom: 15rem;
+}
 
 }
 

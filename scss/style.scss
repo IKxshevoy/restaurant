@@ -57,6 +57,7 @@ $base-color: #d98434;
                 letter-spacing: 2px;
                 font-weight: 500;
                 transition: 0.7s;
+                font-size: 1.4rem;
             }
         }
     }
@@ -124,7 +125,7 @@ $base-color: #d98434;
     }
 
     &__btn:hover {
-        background-color: #555;
+        transform: scale(1.1);
         color: white;
     }
 
@@ -428,15 +429,35 @@ $base-color: #d98434;
     }
 }
 
+@media (max-width: 1000px) {
+    .about-us__content {
+        flex-direction: column;
+    }
+    
+    .about-us__image {
+        order: 1;
+        margin: 0;
+    }
+
+    .about-us__btn {
+        display: none;
+    }
+}
+
 @media (max-width: 900px) {
+
+    .hero-section__title {
+        font-size: 2.5rem;
+    }
 
     .header {
 
         .hamburger {
             display: block;
             position: relative;
+            z-index: 100;
             top: 0px;
-            right: -50px;
+            right: -40px;
 
             &.active .bar:nth-child(2) {
                 opacity: 0;
@@ -467,12 +488,13 @@ $base-color: #d98434;
                 margin: 16px 0;
 
                 a{
-                    color: $base-color;
+                    color: $base-color !important;
                 }
             }
 
             &.active {
                 right: 0;
+                z-index: 100;
             }
         }
     }
@@ -487,4 +509,180 @@ $base-color: #d98434;
             background: none;
         }
     }
+
+    .contacts {
+
+        &__wrapper {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        &__info {
+            flex-direction: row;
+            height: 130px;
+            > div {
+                flex-basis: 25%;
+            }
+
+            &-btn {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 778px) {
+
+    .hero-section__title {
+        font-size: 2rem;
+    }
+
+    .delivery__box {
+
+        &-text-title {
+            font-size: 2.3rem;
+        }
+        &-text-p {
+            font-size: 1.3rem;
+        }
+
+        &-bg {
+            height: 400px;
+        }
+
+        &-runner2 {
+            top: 130px;
+        }
+    }
+
+    .footer {
+
+        &__content {
+            flex-wrap: wrap;
+        }
+
+        &__main {
+            flex-basis: 50%;
+            margin-bottom: 50px;
+        }
+        &__working-hours {
+            flex-basis: 50%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero-section__title {
+        font-size: 1.6rem;
+    }
+
+    .contacts__map {
+        iframe {
+            width: 450px !important;
+            height: 350px !important; 
+        }
+    }
+
+    .delivery__box {
+
+        &-text {
+            width: 380px;
+        }
+
+        &-text-title {
+            font-size: 2rem;
+        }
+        &-text-p {
+            font-size: 1.2rem;
+        }
+
+        &-bg {
+            height: 350px;
+        }
+
+        &-runner2 {
+            display: none;
+        }
+    }
+
+    .container {
+        width: 550px;
+    }
+
+    .about-us {
+        margin: 0;
+    }
+
+    .about-us__image {
+        width: 400px;
+        height: 280px;
+    }
+
+    .contacts__info {
+        flex-wrap: wrap;
+
+        > div {
+            flex-basis: 50%;
+        }
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .hero-section__text {
+        width: 400px;
+    }
+
+    .hero-section__btn {
+        padding: 15px 15px;
+    }
+
+    .delivery__box {
+
+        &-text-title {
+            font-size: 1.6rem;
+        }
+        &-text-p {
+            font-size: 1rem;
+        }
+
+        &-bg {
+            height: 300px;
+        }
+    }
+
+    .contacts__map {
+        margin-top: 50px;
+
+        iframe {
+            width: 380px !important;
+            height: 290px !important; 
+        }
+    }
+
+    .footer {
+        &__content {
+            flex-direction: column;
+        }
+        &__working-hours {
+            margin-bottom: 30px;
+            &-title {
+                margin-bottom: 10px;
+            }
+        }
+        &__main {
+            margin-bottom: 30px;
+        }
+
+        &__contacts {
+            margin-bottom: 30px;
+        }
+        &__additional-title {
+            margin: 0;
+        }
+    }
+
+
 }
